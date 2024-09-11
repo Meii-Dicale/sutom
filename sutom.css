@@ -1,8 +1,16 @@
-
-
+body {
+	color: aliceblue;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.5rem;
+	background-color: #181c14;
+	margin: 0;
+	padding: 0;
+}
+/*-----Partie haute------*/
 h1 {
-    text-transform: uppercase;
-    font-size: 40px;
+	text-transform: uppercase;
+	font-size: 5rem;
+	text-align: center;
 }
 
 #top-sutom {
@@ -20,25 +28,73 @@ h1 {
 }
 
 .td {
-    display: table-cell;
-}
+	width: 60px;
+	height: 60px;
+	border: 2px solid aliceblue;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+	display: table-cell;
+}*/
 
+	/*--------------test------------------------*/
+	/*--------Grille----------*/
+	#grid {
+		display: grid;
+		grid-gap: 10px;
+		justify-content: center;
+		margin-top: 0.625rem 0 20px 0;
+	}
 
-#top-keyboard {
-    display: grid;
-    grid-template-columns: repeat(10, 50px);
-    grid-gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
-}
+	/*---------CSS des cellules dans la grille--------*/
+	#grid td {
+		width: 4rem;
+		height: 4rem;
+		border: 2px solid #697565;
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: bold;
+		background-color: aliceblue;
+		border-radius: 5px;
+		text-align: center;
+	}
 
-#middle-keyboard {
-    display: grid;
-    grid-template-columns: repeat(10, 50px);
-    grid-gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
-}
+	/*-------Classes pour le JavaScript pour changer les couleurs si besoin----------*/
+
+	/*--Lettre correcte--*/
+	.correct {
+		background-color: greenyellow;
+		color: aliceblue;
+	}
+
+	/*--Lettre mal placée--*/
+	.misplaced {
+		background-color: yellow;
+		color: aliceblue;
+	}
+
+	/*--Lettre incorrecte---*/
+	.incorrect {
+		background-color: red;
+		color: aliceblue;
+	}
+
+	/*---------Partie du clavier-----------*/
+	#top-keyboard {
+		display: grid;
+		grid-template-columns: repeat(10, 50px);
+		grid-gap: 10px;
+		justify-content: center;
+		margin-bottom: 20px;
+	}
+
+	#middle-keyboard {
+		display: grid;
+		grid-template-columns: repeat(10, 50px);
+		grid-gap: 10px;
+		justify-content: center;
+		margin-bottom: 20px;
+	}
 
 #bottom-keyboard {
     display: grid;
