@@ -53,7 +53,7 @@ for ( i = 0; i < 6; i++) {
 // Variable pour suivre la position de la lettre
 let currentRow = 0;
 let currentCol = 0;
-
+console.log(currentRow +","+ currentCol)
 // Sélectionner toutes les divs avec un attribut data-lettre
 let lettreDivs = document.querySelectorAll('div[data-lettre]');
 
@@ -63,16 +63,21 @@ lettreDivs.forEach(div => {
         // Récupérer la valeur de l'attribut data-lettre
         let lettre = div.getAttribute('data-lettre');
         console.log('Lettre cliquée :', lettre);
-        //test pour voir si lettre récupère bien la valeur
-/*         if ( lettre=== "_entree"){
-            console.log("ENTER")
-        } */
-
-        // Remplir la case correspondante dans la ligne en cours
+        //test pour voir si lettre récupère bien la valeur        // Effacer la case précédente si on appuie sur effacer
+        if (lettre === "_effacer") {
+            console.log("EFFACE MOI CA");
+            console.log(currentRow +","+ currentCol)
+            let cell = document.getElementById("letter" + currentRow + (currentCol-1))
+            currentCol--;
+            cell.textContent ="" ;
+            console.log(currentRow +","+ currentCol)
+        }else {
+         
         if (currentCol < letters.length ) {  // S'assurer que la colonne ne dépasse pas la longueur du mot
-            let cell = document.getElementById("letter" + currentRow + currentCol);
-            cell.textContent = lettre;
-            currentCol++; // Passer à la prochaine colonne
+                let cell = document.getElementById("letter" + currentRow + currentCol);
+                cell.textContent = lettre;
+                currentCol++; // Passer à la prochaine colonne
+                console.log(currentRow +","+ currentCol)
         }
 
         // Si la ligne est terminée, passer à la ligne suivante
@@ -81,16 +86,7 @@ lettreDivs.forEach(div => {
             currentCol = 0; // Réinitialiser la colonne pour la prochaine ligne
         }
 
-        // Stopper si on a rempli les 6 lignes
-/*         if (currentRow >= 6) {
-            console.log("perdu")
-        } */
-        // Effacer la case précédente si on appuie sur effacer
-        if (lettre === "_effacer") {
-            currentCol--;
-            let cell = document.getElementById("letter" + (currentRow + (currentCol-1)));
-            cell.remove() ;
-        }
+    }
     });
 });
 
