@@ -53,19 +53,29 @@ for ( i = 0; i < 6; i++) {
 
 // Sélectionner toutes les divs avec un attribut data-lettre
 let lettreDivs = document.querySelectorAll('div[data-lettre]');
-
+let chosenletter = "";
 // Boucle à travers chaque div et ajout de l'écouteur d'événements
 lettreDivs.forEach(div => {
     div.addEventListener('click', function() {
         // Récupérer la valeur de l'attribut data-lettre
         let lettre = div.getAttribute('data-lettre');
-
+        chosenletter = lettre;
         console.log('Lettre cliquée :', lettre);
     });
 });
-
+ 
 // Fonction pour ajouter les lettres dans le tableau et s'arrêter à la dernière case
 for ( x=0; x<6 ; x++ ) {
-let try0 = document.getElementById('try'+x);
-console.log(try0);}
+let tryx = document.getElementById('try'+x);
+for ( j = 0; j < count; j++) {
+    let tdletter = document.getElementById('letter'+x+j);
+    console.log(tdletter) ;
+    if (tdletter && chosenletter) {
+        tdletter.textContent = chosenletter; 
+    }
+}
+
+}
+
+
 
