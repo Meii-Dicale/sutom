@@ -35,12 +35,12 @@ grid.appendChild(table);
 
 // création de 6 lignes pour chaque lettre tableau
 
-for (var i = 0; i < 6; i++) {
+for ( i = 0; i < 6; i++) {
     // console.log(i);
     let row = document.createElement("tr")
     row.setAttribute("id","try"+i)
     table.appendChild(row)
-    for (var j = 0; j < letters.length; j++) {
+    for ( j = 0; j < letters.length; j++) {
         // console.log(j);
         let cell = document.createElement("td")
         cell.setAttribute("id","letter"+i+j)
@@ -49,6 +49,33 @@ for (var i = 0; i < 6; i++) {
     }
 }
 
+
+
+// Sélectionner toutes les divs avec un attribut data-lettre
+let lettreDivs = document.querySelectorAll('div[data-lettre]');
+let chosenletter = "";
+// Boucle à travers chaque div et ajout de l'écouteur d'événements
+lettreDivs.forEach(div => {
+    div.addEventListener('click', function() {
+        // Récupérer la valeur de l'attribut data-lettre
+        let lettre = div.getAttribute('data-lettre');
+        chosenletter = lettre;
+        console.log('Lettre cliquée :', lettre);
+    });
+});
+ 
+// Fonction pour ajouter les lettres dans le tableau et s'arrêter à la dernière case
+for ( x=0; x<6 ; x++ ) {
+let tryx = document.getElementById('try'+x);
+for ( j = 0; j < count; j++) {
+    let tdletter = document.getElementById('letter'+x+j);
+    console.log(tdletter) ;
+    if (tdletter && chosenletter) {
+        tdletter.textContent = chosenletter; 
+    }
+}
+
+}
 
 
 
