@@ -1,100 +1,88 @@
 body {
-	color: rgb(80, 109, 135);
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1.5rem;
-	background-color: #181c14;
-	margin: 0;
-	padding: 0;
+    color: rgb(80, 109, 135);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    background-color: #181c14;
+    margin: 0;
+    padding: 0;
 }
+
 /*-----Partie haute------*/
 h1 {
-	text-transform: uppercase;
-	font-size: 5rem;
-	text-align: center;
+    text-transform: uppercase;
+    font-size: 5rem;
+    text-align: center;
 }
 
 #top-sutom {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 }
 
-.table {
-    display: table;
+/*--------------test------------------------*/
+/*--------Grille----------*/
+#grid {
+    display: grid;
+    grid-gap: 10px;
+    justify-content: center;
+    margin-top: 0.625rem 0 20px 0;
 }
 
-.tr {
-    display: table-row;
+/*---------CSS des cellules dans la grille--------*/
+#grid td {
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid #697565;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: aliceblue;
+    border-radius: 5px;
+    text-align: center;
 }
 
-.td {
-	width: 60px;
-	height: 60px;
-	border: 2px solid aliceblue;
-	text-align: center;
-	font-size: 1.5rem;
-	font-weight: bold;
-	display: table-cell;
-}*/
+/*-------Classes pour le JavaScript pour changer les couleurs si besoin----------*/
 
-	/*--------------test------------------------*/
-	/*--------Grille----------*/
-	#grid {
-		display: grid;
-		grid-gap: 10px;
-		justify-content: center;
-		margin-top: 0.625rem 0 20px 0;
-	}
+/*--Lettre correcte--*/
+.correct {
+    background-color: greenyellow;
+    color: aliceblue;
+}
 
-	/*---------CSS des cellules dans la grille--------*/
-	#grid td {
-		width: 4rem;
-		height: 4rem;
-		border: 2px solid #697565;
-		text-align: center;
-		font-size: 1.5rem;
-		font-weight: bold;
-		background-color: aliceblue;
-		border-radius: 5px;
-		text-align: center;
-	}
+/*--Lettre mal placée--*/
+.misplaced {
+    background-color: yellow;
+    color: aliceblue;
+}
 
-	/*-------Classes pour le JavaScript pour changer les couleurs si besoin----------*/
+/*--Lettre incorrecte---*/
+.incorrect {
+    background-color: red;
+    color: aliceblue;
+}
 
-	/*--Lettre correcte--*/
-	.correct {
-		background-color: greenyellow;
-		color: aliceblue;
-	}
+/*---------Partie du clavier-----------*/
+#bot-sutom{
+    margin-top: 30px;    
+}
 
-	/*--Lettre mal placée--*/
-	.misplaced {
-		background-color: yellow;
-		color: aliceblue;
-	}
+#top-keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
-	/*--Lettre incorrecte---*/
-	.incorrect {
-		background-color: red;
-		color: aliceblue;
-	}
-
-	/*---------Partie du clavier-----------*/
-	#top-keyboard {
-		display: grid;
-		grid-template-columns: repeat(10, 50px);
-		grid-gap: 10px;
-		justify-content: center;
-		margin-bottom: 20px;
-	}
-
-	#middle-keyboard {
-		display: grid;
-		grid-template-columns: repeat(10, 50px);
-		grid-gap: 10px;
-		justify-content: center;
-		margin-bottom: 20px;
-	}
+#middle-keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
 #bottom-keyboard {
     display: grid;
@@ -118,12 +106,6 @@ h1 {
     background-color: #ffffff;
 }
 
-.input-lettre.used {
-    background-color: rgb(179, 28, 28);  /* La touche est grisée */
-    color: white;
-    cursor: not-allowed; /* Change le curseur pour indiquer qu'elle est désactivée */
-}
-
 
 .input-lettre-effacer {
     background-color: #fbfbfb00;
@@ -135,28 +117,12 @@ h1 {
     border: 4mm ridge grey;
 }
 
-img{
+img {
     width: 30px;
 }
 
-.input-lettre:hover{
-  background-color: #b0bbd9; 
-    cursor: pointer;  
+.input-lettre:hover {
+    background-color: #b0bbd9;
+    cursor: pointer;
 }
 
-.input-lettre.correct {
-    background-color: green;
-    color: white;
-}
-
-.input-lettre.misplaced {
-    background-color: yellow;
-    color: black;
-}
-
-.input-lettre.incorrect {
-    background-color: grey;
-    color: white;
-}
-    
-     
