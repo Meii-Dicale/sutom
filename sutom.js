@@ -74,7 +74,10 @@ lettreDivs.forEach(div => {
             cell.textContent ="" ;
             console.log(currentRow +","+ currentCol)
         }else {
-         
+            if (currentCol < letters.length && lettre === "_entree") {
+                return
+
+            }
         if (currentCol < letters.length ) {  // S'assurer que la colonne ne dépasse pas la longueur du mot
                 let cell = document.getElementById("letter" + currentRow + currentCol);
                 cell.textContent = lettre;
@@ -84,20 +87,22 @@ lettreDivs.forEach(div => {
 
 
                // Si la ligne est terminée, passer à la ligne suivante
-               if (currentCol === letters.length && lettre === "_entree") {
-                currentRow++;
+               if (currentCol === letters.length && lettre === "_entree") { verify
+                
                 // ICI il faut ajouter une fonction qui compare les éléments
-/*                 function verify () {
-                    for(currentCol = 0, currentCol > count; currentCol++)
+               function verify () {
+                    for(currentCol = 0, currentCol > count; currentCol++;);
                     let cell = document.getElementById("letter" + currentRow + currentCol);
+                console.log(cell);
                         if (cell.textContent = letters[currentCol])
-                        { currentCol.addAttribute ("class", "correct")
-                } //else if (cell.textContent 
-                }  */
+                        { cell.addAttribute ("class", "correct")
+                } else { return}
+                }  
+                currentRow++; // passer à la ligne 
                 currentCol = 0; // Réinitialiser la colonne pour la prochaine ligne
                 
-            }else {
-             return; }
+                }else {
+              return; }
     }});
 });
 
