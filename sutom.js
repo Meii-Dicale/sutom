@@ -1,5 +1,5 @@
 // création d'une liste de mots 
-let words = ["pomme", "banane", "cerise", "noix", "ananas","éléphant","crocodile","chenille","chat","escargot"];
+let words = ["pomme", "banane", "cerise", "noix", "ananas","éléphant","crocodile","chenille","chat","escargot","noël"];
 
 console.log(words);
 
@@ -11,14 +11,15 @@ function randomword(words) {
 
 // stocker le mot aléatoire dans une variable
 let random = randomword(words);
-//console.log(random);
+let majuscule = random.toUpperCase()
+console.log(random);
 
-
+let sansAccents = majuscule.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
 // découper le mot en tableau et stocker chaque lettre dans une variable 
 
 
-let letters = random.split("");
+let letters = sansAccents.split("");
 console.log(letters);
 
 // compter le nombre d'élément dans letters
@@ -67,7 +68,9 @@ lettreDivs.forEach(div => {
             console.log("EFFACE MOI CA");
             console.log(currentRow +","+ currentCol)
             let cell = document.getElementById("letter" + currentRow + (currentCol-1))
-            currentCol--;
+            if (currentCol > 0) {
+            currentCol--;}
+            else { return}
             cell.textContent ="" ;
             console.log(currentRow +","+ currentCol)
         }else {
@@ -84,6 +87,13 @@ lettreDivs.forEach(div => {
                if (currentCol === letters.length && lettre === "_entree") {
                 currentRow++;
                 // ICI il faut ajouter une fonction qui compare les éléments
+/*                 function verify () {
+                    for(currentCol = 0, currentCol > count; currentCol++)
+                    let cell = document.getElementById("letter" + currentRow + currentCol);
+                        if (cell.textContent = letters[currentCol])
+                        { currentCol.addAttribute ("class", "correct")
+                } //else if (cell.textContent 
+                }  */
                 currentCol = 0; // Réinitialiser la colonne pour la prochaine ligne
                 
             }else {
@@ -91,6 +101,3 @@ lettreDivs.forEach(div => {
     }});
 });
 
-function verify () {
-    
-}
