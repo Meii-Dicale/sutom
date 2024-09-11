@@ -11,7 +11,7 @@ function randomword(words) {
 
 // stocker le mot aléatoire dans une variable
 let random = randomword(words);
-console.log(random);
+//console.log(random);
 
 
 
@@ -19,7 +19,7 @@ console.log(random);
 
 
 let letters = random.split("");
-// console.log(letters);
+console.log(letters);
 
 // compter le nombre d'élément dans letters
 
@@ -56,7 +56,6 @@ let currentCol = 0;
 console.log(currentRow +","+ currentCol)
 // Sélectionner toutes les divs avec un attribut data-lettre
 let lettreDivs = document.querySelectorAll('div[data-lettre]');
-
 // Boucle à travers chaque div et ajout de l'écouteur d'événements
 lettreDivs.forEach(div => {
     div.addEventListener('click', function() {
@@ -80,14 +79,18 @@ lettreDivs.forEach(div => {
                 console.log(currentRow +","+ currentCol)
         }
 
-        // Si la ligne est terminée, passer à la ligne suivante
-        if (currentCol === letters.length) {
-            currentRow++;
-            currentCol = 0; // Réinitialiser la colonne pour la prochaine ligne
-        }
 
-    }
-    });
+               // Si la ligne est terminée, passer à la ligne suivante
+               if (currentCol === letters.length && lettre === "_entree") {
+                currentRow++;
+                // ICI il faut ajouter une fonction qui compare les éléments
+                currentCol = 0; // Réinitialiser la colonne pour la prochaine ligne
+                
+            }else {
+             return; }
+    }});
 });
 
-
+function verify () {
+    
+}
