@@ -1,5 +1,5 @@
 body {
-	color: aliceblue;
+	color: rgb(80, 109, 135);
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1.5rem;
 	background-color: #181c14;
@@ -108,7 +108,7 @@ h1 {
 .input-lettre {
     width: 50px;
     height: 50px;
-    border: 2px solid #000000;
+    border: 2px solid #686666;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -117,6 +117,13 @@ h1 {
     font-weight: bold;
     background-color: #ffffff;
 }
+
+.input-lettre.used {
+    background-color: rgb(179, 28, 28);  /* La touche est grisée */
+    color: white;
+    cursor: not-allowed; /* Change le curseur pour indiquer qu'elle est désactivée */
+}
+
 
 .input-lettre-effacer {
     background-color: #fbfbfb00;
@@ -133,9 +140,23 @@ img{
 }
 
 .input-lettre:hover{
-  background-color: #841313; 
+  background-color: #b0bbd9; 
     cursor: pointer;  
 }
 
+.input-lettre.correct {
+    background-color: green;
+    color: white;
+}
+
+.input-lettre.misplaced {
+    background-color: yellow;
+    color: black;
+}
+
+.input-lettre.incorrect {
+    background-color: grey;
+    color: white;
+}
     
      

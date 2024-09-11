@@ -52,13 +52,10 @@ for ( i = 0; i < 6; i++) {
 // Sélectionner toutes les divs avec un attribut data-lettre
 let lettreDivs = document.querySelectorAll('div[data-lettre]');
 
-<<<<<<< HEAD
-=======
 
 // Sélectionner toutes les divs avec un attribut data-lettre
 let lettreDivs = document.querySelectorAll('div[data-lettre]');
 let chosenletter = "";
->>>>>>> 9513e1aa41b779d94f9850ab8986269a1bd746fc
 // Boucle à travers chaque div et ajout de l'écouteur d'événements
 lettreDivs.forEach(div => {
     div.addEventListener('click', function() {
