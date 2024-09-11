@@ -1,5 +1,5 @@
 // création d'une liste de mots 
-let words = ["pomme", "banane", "cerise", "noix", "ananas","éléphant","crocodile","chenille","chat","escargot"];
+let words = ["pomme", "banane", "cerise", "noix", "ananas","éléphant","crocodile","chenille","chat","escargot","noël"];
 
 console.log(words);
 
@@ -68,7 +68,9 @@ lettreDivs.forEach(div => {
             console.log("EFFACE MOI CA");
             console.log(currentRow +","+ currentCol)
             let cell = document.getElementById("letter" + currentRow + (currentCol-1))
-            currentCol--;
+            if (currentCol > 0) {
+            currentCol--;}
+            else { return}
             cell.textContent ="" ;
             console.log(currentRow +","+ currentCol)
         }else {
