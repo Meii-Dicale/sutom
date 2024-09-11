@@ -49,6 +49,17 @@ for (var i = 0; i < 6; i++) {
     }
 }
 
+// Sélectionner toutes les divs avec un attribut data-lettre
+let lettreDivs = document.querySelectorAll('div[data-lettre]');
 
-
+// Boucle à travers chaque div et ajout de l'écouteur d'événements
+lettreDivs.forEach(div => {
+    div.addEventListener('click', function() {
+        // Récupérer la valeur de l'attribut data-lettre
+        let lettre = div.getAttribute('data-lettre');
+        
+        // Faire quelque chose avec la lettre, 
+        console.log('Lettre cliquée :', lettre);
+    });
+});
 
