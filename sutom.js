@@ -46,14 +46,21 @@ for ( i = 0; i < 6; i++) {
         let cell = document.createElement("td")
         cell.setAttribute("id","letter"+i+j)
         row.appendChild(cell)
+        if (j === 0 ) {
+            let first = letters[0]
+            cell.textContent  = first
+            console.log(cell);
+            console.log(first);
+        }
         cell = letters[j]
+       
     }
 }
 
 
 // Variable pour suivre la position de la lettre
 let currentRow = 0;
-let currentCol = 0;
+let currentCol = 1;
 console.log(currentRow +","+ currentCol)
 // Sélectionner toutes les divs avec un attribut data-lettre
 let lettreDivs = document.querySelectorAll('div[data-lettre]');
