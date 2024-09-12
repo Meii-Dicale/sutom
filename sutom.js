@@ -165,3 +165,7 @@ function win(letters, currentRow) {
     alert("Victoire !");
     return true;  // Le joueur a gagné
 }
+function rejouer() {
+    motSecret = 'BANANA'; // Tu peux changer le mot à chaque nouvelle partie
+    initialiserJeu();
+   }
