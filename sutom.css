@@ -164,5 +164,25 @@ img {
 	font-size: 1.5vw;
 	font-weight: bold;
 	color: aliceblue;
+
 	background: #b3b2b2 !important;
+}
+
+@media only screen and (max-width: 600px) {
+	body {
+		width: 80%;
+	}
+	.input-lettre {
+		font-size: 1.5rem;
+	}
+	.correctkey {
+		font-size: 1.5rem;
+	}
+	.misplacedkey {
+		font-size: 1.5rem;
+	}
+
+	.incorrectkey {
+		font-size: 1.5rem;
+	}
 }
