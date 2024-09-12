@@ -98,7 +98,11 @@ lettreDivs.forEach(div => {
                // Si la ligne est terminée, passer à la ligne suivante et vérification de placement et victoire
                if (currentCol === letters.length && lettre === "_entree") 
                 { verify(letters, currentRow);
-                  win(letters, currentRow);
+                  let victoire = win(letters, currentRow);
+                  if (!victoire && currentRow === 5) {  // 5 car les lignes sont indexées de 0 à 5 (6 essais en tout)
+                    loose(letters, currentRow, currentCol);
+                }
+                  
 
 
 
@@ -106,9 +110,10 @@ lettreDivs.forEach(div => {
                 
              
                 currentRow++; // passer à la ligne 
-                currentCol = 0; // Réinitialiser la colonne pour la prochaine ligne
+                currentCol = 1; // Réinitialiser la colonne pour la prochaine ligne
 
             } else {
+                
                 return;
             }
         }
@@ -164,4 +169,15 @@ function win(letters, currentRow) {
     // Si on arrive à la fin de la boucle, toutes les lettres sont correctes
     alert("Victoire !");
     return true;  // Le joueur a gagné
+}
+// la partie est perdu si on a appuyé sur entree et que la colonne est la dernière, la ligne 6 et que la fonction win n'abouti pas
+
+
+function loose(letters, currentRow, currentCol) {
+    let cell = document.getElementById("letter" + currentRow + (currentCol - 1)); // dernière lettre entrée
+    if (currentRow === 5 && currentCol === letters.length && cell.getAttribute("class") !== "correct") {
+        alert("Perdu! Tu as raté le mot : " + letters.join(""));
+        return true; // Le joueur a perdu
+    }
+    return false; // Le joueur n'a pas encore perdu
 }
