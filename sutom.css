@@ -143,6 +143,12 @@ img {
 	-webkit-filter: brightness(1.5);
 	filter: brightness(1.5);
 }
+
+.correctkey, .misplacedkey, .incorrectkey:hover {
+    cursor: pointer;
+	-webkit-filter: brightness(1.5);
+	filter: brightness(1.5);
+}
 /*--touches utilisées--*/
 .correctkey {
 	width: 50px;
