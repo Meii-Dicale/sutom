@@ -1,5 +1,5 @@
 body {
-    color: rgb(80, 109, 135);
+    color: rgb(246, 246, 247);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     background-color: #181c14;
@@ -12,13 +12,20 @@ h1 {
     text-transform: uppercase;
     font-size: 5rem;
     text-align: center;
+    text-shadow: 0 0 2px #FFD100, 0 0 30px #FFD100, 0px 0px 5px #FFD100, 0 0 150px #FFD100;
+    color: #FFD100;
+
+
+
 }
+
+
 
 #top-sutom {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
 }
 
 /*--------------test------------------------*/
@@ -64,8 +71,8 @@ h1 {
 }
 
 /*---------Partie du clavier-----------*/
-#bot-sutom{
-    margin-top: 30px;    
+#bot-sutom {
+    margin-top: 30px;
 }
 
 #top-keyboard {
@@ -96,14 +103,14 @@ h1 {
 .input-lettre {
     width: 50px;
     height: 50px;
-    border: 2px solid #686666;
+    border: 2px solid #b3b2b2;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5vw;
     font-weight: bold;
-    background-color: #ffffff;
+    background: linear-gradient(rgb(71, 71, 72), rgb(175, 174, 174));
 }
 
 
@@ -122,9 +129,6 @@ img {
 }
 
 .input-lettre:hover {
-    background-color: #b0bbd9;
     cursor: pointer;
+    filter: brightness(1.5);
 }
-
-
-
