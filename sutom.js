@@ -106,25 +106,33 @@ lettreDivs.forEach(div => {
 
 
 // Fonction de vérification des lettres ( on défini la victoire en true, et dès qu'une lettre est mal placé ou incorrect la valeur gagné passe en false)
-function verify(letters, currentRow){
+function verify(letters, currentRow, lettre){
     
     for (let col = 0; col < letters.length; col++) {
         let cell = document.getElementById("letter" + currentRow + col);
+        let lalettre = cell.textContent;
+        let keyboardKey = document.querySelector(`div[data-lettre='${lalettre}']`);
+        console.log(keyboardKey);
         // si la lettre de la colonne actuelle correspond la lettre du la liste (meme position) alors ajout de correct
         if (cell.textContent === letters[col]){
             cell.setAttribute("class", "correct");
+            keyboardKey.setAttribute("class", "correctkey");
+            
             } 
             else {
             // si la lettre de la colonne actuelle est contenu dans la liste alors ajout de misplaced
                  if (letters.includes(cell.textContent) ) {
                   cell.setAttribute("class", "misplaced");
                  // ajouter une classe sur le clavier
+                 keyboardKey.setAttribute("class", "misplacedkey");
+                 
 
                  } 
                     else {
           
             // si pas correct ou pas misplaced alors incorrect et victoire false
                      cell.setAttribute("class", "incorrect");
+                     keyboardKey.setAttribute("class", "incorrectkey");
                      
                     } 
                         
