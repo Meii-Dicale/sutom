@@ -78,7 +78,7 @@ lettreDivs.forEach(div => {
                 return
 
             }
-        if (currentCol < letters.length ) {  // S'assurer que la colonne ne dépasse pas la longueur du mot
+            if (currentCol < letters.length ) {  // S'assurer que la colonne ne dépasse pas la longueur du mot
                 let cell = document.getElementById("letter" + currentRow + currentCol);
                 cell.textContent = lettre;
                 currentCol++; // Passer à la prochaine colonne
