@@ -5,6 +5,8 @@ body {
 	background-color: #181c14;
 	margin: 0;
 	padding: 0;
+	max-height: 100vh;
+	overflow-y: auto;
 }
 
 /*-----Partie haute------*/
