@@ -87,7 +87,7 @@ lettreDivs.forEach(div => {
 
 
                // Si la ligne est terminée, passer à la ligne suivante
-               if (currentCol === letters.length && lettre === "_entree") { //verify
+               if (currentCol === letters.length && lettre === "_entree") { verify(letters, currentRow);
                 
                 
                 // ICI il faut ajouter une fonction qui compare les éléments
@@ -100,23 +100,33 @@ lettreDivs.forEach(div => {
     }});
 });
 
-// Fonction de vérification des éléments de letters avec les éléments id "letter" + currentRow + currentCol/* 
-/*function verify() {
-  
-    lettres.forEach(document.getElementById("letter" + currentRow + currentCol) => {
-        for(currentCol = 0, currentCol > letters.length; currentCol++;);
-        lettres.push(div.getAttribute('data-lettre'));
-    });
-    console.log(lettres);
+
+// Fonction de vérification des lettres ( on défini la victoire en true, et dès qu'une lettre est mal placé ou incorrect la valeur gagné passe en false)
+function verify(letters, currentRow){
+    let victoire = true
+    for (let col = 0; col < letters.length; col++) {
+        let cell = document.getElementById("letter" + currentRow + col);
+        if (cell.textContent === letters[col]) {
+            cell.setAttribute("class", "correct");
+        } else {
+        if (letters.includes(cell.textContent) ) {
+            cell.setAttribute("class", "misplaced");
+            victoire = false;
+
+        }else{
+          
+     {
+            // Tu peux ajouter d'autres classes ici si la lettre est incorrecte, par exemple :
+            cell.setAttribute("class", "incorrect");
+            victoire = false;
+        }}
+        
+    }
 
 
-} */
+   
+    if (victoire) {
+        alert("gagné");};
 
-/* function verify () {
-    for(currentCol = 0, currentCol > letters.length; currentCol++;);
-    let cell = document.getElementById("letter" + currentRow + currentCol);
-console.log(cell);
-        if (cell.textContent === letters[currentCol])
-        { cell.addAttribute ("class", "correct")
-} //else { return}
-}  */
+}}
+
