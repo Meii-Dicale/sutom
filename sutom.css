@@ -35,35 +35,36 @@ h1 {
 
 /*---------CSS des cellules dans la grille--------*/
 #grid td {
-	width: 4rem;
-	height: 4rem;
-	border: 2px solid #697565;
-	text-align: center;
-	font-size: 1.5rem;
-	font-weight: bold;
-	background-color: aliceblue;
-	border-radius: 5px;
-	text-align: center;
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid #697565;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: aliceblue;
+    border-radius: 5px;
+    text-align: center;
+	color :#181c14;
 }
 
 /*-------Classes pour le JavaScript pour changer les couleurs si besoin----------*/
 
 /*--Lettre correcte--*/
 .correct {
-	background-color: greenyellow;
-	color: aliceblue;
+
+	background-color: red !important;
+    color: aliceblue;
 }
 
 /*--Lettre mal placée--*/
 .misplaced {
-	background-color: yellow;
-	color: aliceblue;
+    background-color: yellow !important;
+    color: aliceblue;
 }
 
 /*--Lettre incorrecte---*/
 .incorrect {
-	background-color: red;
-	color: aliceblue;
+	background-color: #b3b2b2 !important;
 }
 
 /*---------Partie du clavier-----------*/
