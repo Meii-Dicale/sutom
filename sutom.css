@@ -55,20 +55,20 @@ h1 {
 
 /*--Lettre correcte--*/
 .correct {
-    background-color: greenyellow;
+
+    background-color: red !important;
     color: aliceblue;
 }
 
 /*--Lettre mal placée--*/
 .misplaced {
-    background-color: yellow;
+    background-color: yellow !important;
     color: aliceblue;
 }
 
 /*--Lettre incorrecte---*/
 .incorrect {
-    background-color: red;
-    color: aliceblue;
+    background-color: #b3b2b2 !important;
 }
 
 /*---------Partie du clavier-----------*/
