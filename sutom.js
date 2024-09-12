@@ -87,7 +87,7 @@ lettreDivs.forEach(div => {
 
 
                // Si la ligne est terminée, passer à la ligne suivante
-               if (currentCol === letters.length && lettre === "_entree") { verify
+               if (currentCol === letters.length && lettre === "_entree") { //verify
                 
                 
                 // ICI il faut ajouter une fonction qui compare les éléments
@@ -100,8 +100,8 @@ lettreDivs.forEach(div => {
     }});
 });
 
-// Fonction de vérification des éléments de letters avec les éléments id "letter" + currentRow + currentCol
-function verify() {
+// Fonction de vérification des éléments de letters avec les éléments id "letter" + currentRow + currentCol/* 
+/*function verify() {
   
     lettres.forEach(document.getElementById("letter" + currentRow + currentCol) => {
         for(currentCol = 0, currentCol > letters.length; currentCol++;);
@@ -110,7 +110,7 @@ function verify() {
     console.log(lettres);
 
 
-}
+} */
 
 /* function verify () {
     for(currentCol = 0, currentCol > letters.length; currentCol++;);
