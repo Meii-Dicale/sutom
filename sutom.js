@@ -89,15 +89,9 @@ lettreDivs.forEach(div => {
                // Si la ligne est terminée, passer à la ligne suivante
                if (currentCol === letters.length && lettre === "_entree") { verify
                 
+                
                 // ICI il faut ajouter une fonction qui compare les éléments
-               function verify () {
-                    for(currentCol = 0, currentCol > count; currentCol++;);
-                    let cell = document.getElementById("letter" + currentRow + currentCol);
-                console.log(cell);
-                        if (cell.textContent = letters[currentCol])
-                        { cell.addAttribute ("class", "correct")
-                } else { return}
-                }  
+             
                 currentRow++; // passer à la ligne 
                 currentCol = 0; // Réinitialiser la colonne pour la prochaine ligne
                 
@@ -106,3 +100,23 @@ lettreDivs.forEach(div => {
     }});
 });
 
+// Fonction de vérification des éléments de letters avec les éléments id "letter" + currentRow + currentCol
+function verify() {
+  
+    lettres.forEach(document.getElementById("letter" + currentRow + currentCol) => {
+        for(currentCol = 0, currentCol > letters.length; currentCol++;);
+        lettres.push(div.getAttribute('data-lettre'));
+    });
+    console.log(lettres);
+
+
+}
+
+/* function verify () {
+    for(currentCol = 0, currentCol > letters.length; currentCol++;);
+    let cell = document.getElementById("letter" + currentRow + currentCol);
+console.log(cell);
+        if (cell.textContent === letters[currentCol])
+        { cell.addAttribute ("class", "correct")
+} //else { return}
+}  */
