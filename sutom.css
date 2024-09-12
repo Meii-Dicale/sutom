@@ -48,7 +48,7 @@ h1 {
     background-color: aliceblue;
     border-radius: 5px;
     text-align: center;
-	color :#181c14;
+    color: #181c14;
 }
 
 /*-------Classes pour le JavaScript pour changer les couleurs si besoin----------*/
@@ -56,7 +56,7 @@ h1 {
 /*--Lettre correcte--*/
 .correct {
 
-	background-color: red !important;
+    background-color: red !important;
     color: aliceblue;
 }
 
@@ -68,7 +68,7 @@ h1 {
 
 /*--Lettre incorrecte---*/
 .incorrect {
-	background-color: #b3b2b2 !important;
+    background-color: #b3b2b2 !important;
 }
 
 /*---------Partie du clavier-----------*/
