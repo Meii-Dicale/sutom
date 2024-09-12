@@ -86,11 +86,15 @@ lettreDivs.forEach(div => {
         }
 
 
-               // Si la ligne est terminée, passer à la ligne suivante
-               if (currentCol === letters.length && lettre === "_entree") { verify(letters, currentRow);
+               // Si la ligne est terminée, passer à la ligne suivante et vérification de placement et victoire
+               if (currentCol === letters.length && lettre === "_entree") 
+                { verify(letters, currentRow);
+                  win(letters, currentRow);
+
+
+
                 
                 
-                // ICI il faut ajouter une fonction qui compare les éléments
              
                 currentRow++; // passer à la ligne 
                 currentCol = 0; // Réinitialiser la colonne pour la prochaine ligne
@@ -103,30 +107,42 @@ lettreDivs.forEach(div => {
 
 // Fonction de vérification des lettres ( on défini la victoire en true, et dès qu'une lettre est mal placé ou incorrect la valeur gagné passe en false)
 function verify(letters, currentRow){
-    let victoire = true
+    
     for (let col = 0; col < letters.length; col++) {
         let cell = document.getElementById("letter" + currentRow + col);
-        if (cell.textContent === letters[col]) {
+        // si la lettre de la colonne actuelle correspond la lettre du la liste (meme position) alors ajout de correct
+        if (cell.textContent === letters[col]){
             cell.setAttribute("class", "correct");
-        } else {
-        if (letters.includes(cell.textContent) ) {
-            cell.setAttribute("class", "misplaced");
-            victoire = false;
+            } 
+            else {
+            // si la lettre de la colonne actuelle est contenu dans la liste alors ajout de misplaced
+                 if (letters.includes(cell.textContent) ) {
+                  cell.setAttribute("class", "misplaced");
+                 // ajouter une classe sur le clavier
 
-        }else{
+                 } 
+                    else {
           
-     {
-            // Tu peux ajouter d'autres classes ici si la lettre est incorrecte, par exemple :
-            cell.setAttribute("class", "incorrect");
-            victoire = false;
-        }}
-        
+            // si pas correct ou pas misplaced alors incorrect et victoire false
+                     cell.setAttribute("class", "incorrect");
+                     
+                    } 
+                        
+                    };       
     }
-
-
-   
-    if (victoire) {
-        alert("gagné");};
-
-}}
-
+};
+function win(letters, currentRow) {
+    for (let col = 0; col < letters.length; col++) {
+        console.log(col);
+        let cell = document.getElementById("letter" + currentRow + col);
+        
+        // Si une des lettres n'est pas correcte, retour sans victoire
+        if (cell.getAttribute("class") !== "correct") {
+            return false; 
+        }
+    }
+    
+    // Si on arrive à la fin de la boucle, toutes les lettres sont correctes
+    alert("Victoire !");
+    return true;  // Le joueur a gagné
+}
