@@ -107,7 +107,6 @@ h1 {
 	justify-content: center;
 	margin-bottom: 20px;
 }
-
 #middle-keyboard {
 	display: grid;
 	grid-template-columns: repeat(10, 50px);
@@ -234,9 +233,13 @@ img {
 		margin-top: 1px;
 		margin-bottom: 1px;
 	}
-	#bot-sutom {
-		width: 10%;
-	}
+
+	/*	#top-keyboard,
+	#middle-keyboard,
+	#bottom-keyboard {
+		width: 50vh;
+		height: 50vh;
+	}*/
 	.input-lettre,
 	.correctkey,
 	.misplacedkey,
