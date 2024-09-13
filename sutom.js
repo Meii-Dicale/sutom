@@ -1,8 +1,3 @@
-document.getElementById('start-btn').addEventListener('click', function() {
-    document.getElementById('content').classList.remove('blur'); // Enlever la classe "blur
-})
-
-
 // TEST LOCAL STORAGE POUR LES VICTOIRES 
 
 let compteurwin = 0
