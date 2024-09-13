@@ -113,6 +113,36 @@ lettreDivs.forEach(div => {
     });
 });
 
+addEventListener('keydown', function (event) {
+    // Convertir la touche en majuscule
+    let maj = event.key;
+    let lettre = maj.toUpperCase();
+
+    console.log('Touche pressée :', event.key);
+    
+    // Vérifier si c'est la touche "Backspace" pour effacer
+    if (event.key === "Backspace") {
+        lettre = "_effacer";
+        console.log('Lettre :', lettre);
+    }
+
+    // Sélectionner le div correspondant à la lettre
+    let lettreDiv = document.querySelector(`div[data-lettre='${lettre}']`);
+
+    // Si un div existe pour cette lettre, simuler un clic
+    if (lettreDiv) {
+        lettreDiv.click();
+    }
+
+    // Gérer l'appui sur "Enter" pour valider
+    if (event.key === "Enter") {
+        let entreeDiv = document.querySelector(`div[data-lettre='_entree']`);
+        if (entreeDiv) {
+            entreeDiv.click();
+        }
+    }
+});
+
 
 // Fonction de vérification des lettres ( on défini la victoire en true, et dès qu'une lettre est mal placé ou incorrect la valeur gagné passe en false)
 /* function verifyred(letters, currentRow, lettre, repetitions,){
