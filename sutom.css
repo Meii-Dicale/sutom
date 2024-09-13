@@ -11,7 +11,7 @@ body {
 	overflow-y: hidden;
 }
 .container {
-	transform: scale(0.7);
+	transform: scale(0.8);
 }
 
 /*-----Partie haute------*/
@@ -236,16 +236,17 @@ img {
 		margin-bottom: 1px;
 	}
 
-	/*	#top-keyboard,
-	#middle-keyboard,
-	#bottom-keyboard {
-		width: 50vh;
-		height: 50vh;
-	}*/
-	.input-lettre,
-	.correctkey,
-	.misplacedkey,
-	.incorrectkey {
-		font-size: 1.5rem;
+	.container {
+		transform: scale(0.6);
+
+		.input-lettre,
+		.correctkey,
+		.misplacedkey,
+		.incorrectkey {
+			font-size: 1.7rem;
+		}
+		#grid td {
+			min-width: 4rem;
+		}
 	}
 }
