@@ -1,3 +1,38 @@
+// TEST LOCAL STORAGE POUR LES VICTOIRES 
+
+let compteurwin = 0
+let compteurloose = 0
+let nombreessais = 0
+let moyenne = 0
+
+
+
+if (localStorage.getItem('compteurwin')) {
+    compteurwin = parseInt(localStorage.getItem('compteurwin'))
+}
+
+if (localStorage.getItem('compteurloose')) {
+    compteurloose = parseInt(localStorage.getItem('compteurloose'))
+}
+if (localStorage.getItem('moyenne')) {
+    moyenne = parseInt(localStorage.getItem('moyenne'))
+}
+if (localStorage.getItem('nombreessais')) {
+    nombreessais = parseInt(localStorage.getItem('nombreessais'))
+}
+if (compteurwin > 0) {
+    moyenne = nombreessais / (compteurwin + compteurloose);
+}
+console.log ( "essais" + nombreessais)
+console.log('moyenne'+ moyenne)
+
+
+console.log('win' + compteurwin) //
+console.log('loose'+ compteurloose)
+
+
+////////////////////////////////
+
 // création d'une liste de mots 
 let words = ["pomme", "banane", "cerise", "noix", "ananas", "éléphant", "crocodile", "chenille", "chat", "escargot", "noël","carnaval","cuisine","service","festival",];
 
@@ -91,6 +126,7 @@ lettreDivs.forEach(div => {
                 cell.textContent = lettre;
                 currentCol++; // Passer à la prochaine colonne
                 // console.log(currentRow + "," + currentCol)
+
             }
 
 
@@ -98,6 +134,8 @@ lettreDivs.forEach(div => {
                if (currentCol === letters.length && lettre === "_entree") 
                 { verifyredAndOrange(letters, currentRow)
                   let victoire = win(letters, currentRow);
+                  nombreessais ++;
+                  localStorage.setItem('nombreessais', nombreessais);
                   if (!victoire && currentRow === 5) {  // 5 car les lignes sont indexées de 0 à 5 (6 essais en tout)
                     loose(letters, currentRow, currentCol);
                 }
@@ -295,18 +333,3 @@ function verifyredAndOrange(letters, currentRow) {
 };
 
 
-// TEST LOCAL STORAGE POUR LES VICTOIRES 
-
-let compteurwin = 0
-let compteurloose = 0
-
-if (localStorage.getItem('compteurwin')) {
-    compteurwin = parseInt(localStorage.getItem('compteurwin'))
-}
-
-if (localStorage.getItem('compteurloose')) {
-    compteurloose = parseInt(localStorage.getItem('compteurloose'))
-}
-
-// console.log('win' + compteurwin) //
-// console.log('loose'+compteurloose)
