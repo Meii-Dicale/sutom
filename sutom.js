@@ -26,7 +26,7 @@ if (localStorage.getItem('nombreessais')) {
     nombreessais = parseInt(localStorage.getItem('nombreessais'))
 }
 if (compteurwin > 0) {
-    moyenne = nombreessais / (compteurwin + compteurloose);
+    moyenne = Math.round(nombreessais / (compteurwin + compteurloose));
 }
 console.log ( "essais" + nombreessais)
 console.log('moyenne'+ moyenne)
