@@ -1,5 +1,5 @@
 // création d'une liste de mots 
-let words = ["pomme", "banane", "cerise", "noix", "ananas", "éléphant", "crocodile", "chenille", "chat", "escargot", "noël"];
+let words = ["pomme", "banane", "cerise", "noix", "ananas", "éléphant", "crocodile", "chenille", "chat", "escargot", "noël","carnaval","cuisine","service","festival",];
 
 console.log(words);
 
@@ -154,6 +154,8 @@ function win(letters, currentRow) {
     
     // Si on arrive à la fin de la boucle, toutes les lettres sont correctes
     alert("Victoire !");
+    compteurwin++;
+    localStorage.setItem('compteurwin', compteurwin);
     location.reload();
     return true;  // Le joueur a gagné
 }
@@ -181,10 +183,13 @@ function win(letters, currentRow) {
 // la partie est perdu si on a appuyé sur entree et que la colonne est la dernière, la ligne 6 et que la fonction win n'abouti pas
 
 
-function loose(letters, currentRow, currentCol) {
+function loose(letters, currentRow, currentCol, compteurloose) {
     let cell = document.getElementById("letter" + currentRow + (currentCol - 1)); // dernière lettre entrée
     if (currentRow === 5 && currentCol === letters.length && cell.getAttribute("class") !== "correct") {
         alert("Perdu! Tu as raté le mot : " + letters.join(""));
+        compteurloose++;
+        localStorage.setItem('compteurloose', compteurloose);
+        location.reload();
         return true; // Le joueur a perdu
     }
     return false; // Le joueur n'a pas encore perdu
@@ -257,4 +262,21 @@ function verifyredAndOrange(letters, currentRow) {
             keyboardKey.setAttribute("class", "incorrectkey");
         }
     }
+};
+
+
+// TEST LOCAL STORAGE POUR LES VICTOIRES 
+
+let compteurwin = 0
+let compteurloose = 0
+
+if (localStorage.getItem('compteurwin')) {
+    compteurwin = parseInt(localStorage.getItem('compteurwin'))
 }
+
+if (localStorage.getItem('compteurloose')) {
+    compteurloose = parseInt(localStorage.getItem('compteurloose'))
+}
+
+console.log('win' + compteurwin) //
+console.log('loose'+compteurloose)
