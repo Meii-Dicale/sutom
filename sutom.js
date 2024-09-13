@@ -51,6 +51,7 @@ for (i = 0; i < 6; i++) {
             cell.textContent  = first
             console.log(cell);
             console.log(first);
+            
         }
         cell = letters[j]
        
@@ -153,6 +154,7 @@ function win(letters, currentRow) {
     
     // Si on arrive à la fin de la boucle, toutes les lettres sont correctes
     alert("Victoire !");
+    location.reload();
     return true;  // Le joueur a gagné
 }
 /* function verifyorange (letters , currentRow) {
