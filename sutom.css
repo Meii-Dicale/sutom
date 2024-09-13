@@ -14,7 +14,6 @@ body {
 	width: 80vw;
 	height: 80vh;
 }
-
 .highlight {
     
     background-color:rgb(255, 232, 101) !important;
@@ -236,7 +235,7 @@ img {
 	background: linear-gradient(rgb(0, 0, 0), rgb(98, 97, 97)) !important;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 780px) {
 	.container {
 		width: 80%;
 		height: 80%;

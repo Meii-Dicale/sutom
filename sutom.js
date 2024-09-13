@@ -263,17 +263,20 @@ function win(letters, currentRow) {
 // la partie est perdu si on a appuyé sur entree et que la colonne est la dernière, la ligne 6 et que la fonction win n'abouti pas
 
 
-function loose(letters, currentRow, currentCol, compteurloose) {
+function loose(letters, currentRow, currentCol) {
     let cell = document.getElementById("letter" + currentRow + (currentCol - 1)); // dernière lettre entrée
-    if (currentRow === 5 && currentCol === letters.length && cell.getAttribute("class") !== "correct") {
-        alert("Perdu! Tu as raté le mot : " + letters.join(""));
-        compteurloose++;
-        localStorage.setItem('compteurloose', compteurloose);
-        location.reload();
-        return true; // Le joueur a perdu
+
+    // Vérifier si on est à la dernière ligne (6ème essai) et que la dernière lettre n'est pas correcte
+    if (currentRow === 5 && currentCol === letters.length && !win(letters, currentRow)) {
+        alert("Perdu! Tu as raté le mot : " + letters.join("")); // Afficher le mot complet
+        compteurloose++; // Incrémenter le compteur de défaites
+        localStorage.setItem('compteurloose', compteurloose); // Mettre à jour le stockage local
+        location.reload(); // Recharger la page après la défaite
+        return true; // Retourner vrai pour indiquer la défaite
     }
     return false; // Le joueur n'a pas encore perdu
 }
+
 
 function countRepetitions(letters) {
     let letterCount = {};
@@ -316,8 +319,14 @@ function verifyredAndOrange(letters, currentRow) {
             keyboardKey.setAttribute("class", "correctkey"); // applique une classe sur le clavier
             repetitions[lalettre]--; // Décrémenter le compteur de cette lettre
             let cellbot = document.getElementById("letter" + (currentRow+1) + col);
-            console.log(cellbot);
-            cellbot.textContent = lalettre;
+            if (cellbot) {  // Vérifier si cellbot existe
+                cellbot.textContent = lalettre; // Afficher la lettre dans la cellule de la ligne suivante
+            }
+            
+            // Si on a atteint la dernière cellule de la ligne actuelle
+            if (col === letters.length - 1) {
+                return false; // Arrêter l'exécution
+            }
         }
     }
 
