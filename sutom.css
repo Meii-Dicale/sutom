@@ -7,9 +7,9 @@ body {
     padding: 0;
     max-height: 100vh;
     overflow-y: auto;
-}
+    }
 
-/*-----Partie haute------*/
+ /*-----Partie haute------*/
 h1 {
     text-transform: uppercase;
     font-size: 5rem;
@@ -18,6 +18,10 @@ h1 {
     color: #ffd100;
 }
 
+th {
+    font-size: 15px;
+      
+}
 #score {
     display: flex;
     justify-content: center;
