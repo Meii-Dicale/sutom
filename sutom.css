@@ -18,7 +18,7 @@ body {
 h1 {
 	text-transform: uppercase;
 	font-size: 5rem;
-	margin-top: 1rem;
+	margin-top: 0.5rem;
 	margin-bottom: 1rem;
 	text-align: center;
 	text-shadow: 0 0 2px #ffd100, 0 0 30px #ffd100, 0px 0px 5px #ffd100, 0 0 150px #ffd100;
@@ -36,7 +36,7 @@ th {
 	color: #ffd100;
 	margin: auto;
 	border: yellow solid;
-	width: 35%;
+	width: 50%;
 	margin-top: 30px;
 }
 
@@ -247,6 +247,17 @@ img {
 		}
 		#grid td {
 			min-width: 4rem;
+		}
+		#score {
+			width: 100%;
+		}
+		th {
+			font-size: 25px;
+		}
+		#table-victoires-defaites {
+			width: 150vw;
+			margin: 2vh;
+			font-size: 25px;
 		}
 	}
 }
