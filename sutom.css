@@ -217,10 +217,6 @@ img {
 }
 
 @media only screen and (max-width: 768px) {
-	.container {
-		width: 80%;
-		height: 80%;
-	}
 	.h1 {
 		margin-top: 1px;
 		margin-bottom: 1px;
@@ -228,32 +224,32 @@ img {
 
 	.container {
 		transform: scale(0.6);
+	}
 
-		.input-lettre,
-		.correctkey,
-		.misplacedkey,
-		.incorrectkey {
-			font-size: 1.7rem;
-		}
+	.input-lettre,
+	.correctkey,
+	.misplacedkey,
+	.incorrectkey {
+		font-size: 1.7rem;
+	}
 
-		#grid td {
-			min-width: 4rem;
-		}
+	#grid td {
+		min-width: 4rem;
+	}
 
-		th {
-			font-size: 25px;
-		}
+	th {
+		font-size: 25px;
+	}
 
-		td {
-			font-size: 30px;
-			font-weight: bold;
-		}
-		#score {
-			align-items: baseline;
-			text-align: center;
-			margin: auto;
-			width: 100vw;
-			margin-top: 10px;
-		}
+	td {
+		font-size: 30px;
+		font-weight: bold;
+	}
+	#score {
+		align-items: baseline;
+		text-align: center;
+		margin: auto;
+		width: 100vw;
+		margin-top: 10px;
 	}
 }
