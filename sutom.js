@@ -30,6 +30,13 @@ console.log('moyenne'+ moyenne)
 console.log('win' + compteurwin) //
 console.log('loose'+ compteurloose)
 
+vic = document.getElementById('victoires')
+vic.innerHTML = compteurwin
+loss = document.getElementById('defaites')
+loss.innerHTML = compteurloose
+moy = document.getElementById('tentatives')
+moy.innerHTML = moyenne
+
 
 ////////////////////////////////
 
@@ -95,6 +102,7 @@ for (i = 0; i < 6; i++) {
 // Variable pour suivre la position de la lettre
 let currentRow = 0;
 let currentCol = 1;
+highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
 // console.log(currentRow +","+ currentCol)
 
 // Sélectionner toutes les divs avec un attribut data-lettre
@@ -102,6 +110,7 @@ let lettreDivs = document.querySelectorAll('div[data-lettre]');
 // Boucle à travers chaque div et ajout de l'écouteur d'événements
 lettreDivs.forEach(div => {
     div.addEventListener('click', function () {
+        
         // Récupérer la valeur de l'attribut data-lettre
         let lettre = div.getAttribute('data-lettre');
         // console.log('Lettre cliquée :', lettre);
@@ -112,6 +121,7 @@ lettreDivs.forEach(div => {
             let cell = document.getElementById("letter" + currentRow + (currentCol - 1))
             if (currentCol > 0) {
                 currentCol--;
+                highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
             }
             else { return }
             cell.textContent = "";
@@ -124,6 +134,7 @@ lettreDivs.forEach(div => {
             if (currentCol < letters.length) {  // S'assurer que la colonne ne dépasse pas la longueur du mot
                 let cell = document.getElementById("letter" + currentRow + currentCol);
                 cell.textContent = lettre;
+                highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
                 currentCol++; // Passer à la prochaine colonne
                 // console.log(currentRow + "," + currentCol)
 
@@ -170,6 +181,7 @@ addEventListener('keydown', function (event) {
     // Si un div existe pour cette lettre, simuler un clic
     if (lettreDiv) {
         lettreDiv.click();
+        highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
     }
 
     // Gérer l'appui sur "Enter" pour valider
@@ -303,6 +315,9 @@ function verifyredAndOrange(letters, currentRow) {
             cell.setAttribute("class", "correct"); // applique une classe sur la cellulle
             keyboardKey.setAttribute("class", "correctkey"); // applique une classe sur le clavier
             repetitions[lalettre]--; // Décrémenter le compteur de cette lettre
+            let cellbot = document.getElementById("letter" + (currentRow+1) + col);
+            console.log(cellbot);
+            cellbot.textContent = lalettre;
         }
     }
 
@@ -331,5 +346,23 @@ function verifyredAndOrange(letters, currentRow) {
         }
     }
 };
+
+
+// Fonction pour ajouter une surbrillance à la cellule active
+function highlightCurrentCell(row, col) {
+    // Retirer la surbrillance de toutes les cellules
+    let allCells = document.querySelectorAll("td");
+    allCells.forEach(cell => {
+        cell.classList.remove("highlight");
+    });
+
+    // Ajouter la surbrillance à la cellule active
+    let currentCell = document.getElementById("letter" + row + col);
+    if (currentCell) {
+        currentCell.classList.add("highlight");
+    }
+};
+
+
 
 
