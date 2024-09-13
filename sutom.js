@@ -30,6 +30,13 @@ console.log('moyenne'+ moyenne)
 console.log('win' + compteurwin) //
 console.log('loose'+ compteurloose)
 
+vic = document.getElementById('victoires')
+vic.innerHTML = compteurwin
+loss = document.getElementById('defaites')
+loss.innerHTML = compteurloose
+moy = document.getElementById('tentatives')
+moy.innerHTML = moyenne
+
 
 ////////////////////////////////
 
