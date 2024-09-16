@@ -1,5 +1,3 @@
-document.getElementById
-
 
 // TEST LOCAL STORAGE POUR LES VICTOIRES 
 
