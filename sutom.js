@@ -6,6 +6,7 @@ let nombreessais = 0
 let moyenne = 0
 
 let reset = document.getElementById ( 'reset' )
+let start = document.getElementById ( 'start' )
 
 
 if (localStorage.getItem('compteurwin')) {
@@ -377,10 +378,18 @@ function highlightCurrentCell(row, col) {
 };
 
 
-
+// Bouton reset qui remet les valeurs à zéro
 reset.addEventListener("buttonClick", function() {
  compteurwin = 0
  compteurloose = 0
  nombreessais = 0
  moyenne = 0
+})
+
+// bouton start qui enlève le filtre blur du body
+
+
+start.addEventListener("buttonClick", function() {
+    $("body").css("blur", none);
+
 })
