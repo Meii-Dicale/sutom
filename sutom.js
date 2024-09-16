@@ -1,3 +1,6 @@
+document.getElementById
+
+
 // TEST LOCAL STORAGE POUR LES VICTOIRES 
 
 let compteurwin = 0
