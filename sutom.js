@@ -125,6 +125,7 @@ lettreDivs.forEach(div => {
             }
             else { return }
             cell.textContent = "";
+           
             // console.log(currentRow + "," + currentCol)
         } else {
             if (currentCol < letters.length && lettre === "_entree") {
@@ -173,6 +174,7 @@ addEventListener('keydown', function (event) {
     if (event.key === "Backspace") {
         lettre = "_effacer";
         console.log('Lettre :', lettre);
+        
     }
 
     // Sélectionner le div correspondant à la lettre
@@ -183,6 +185,7 @@ addEventListener('keydown', function (event) {
         lettreDiv.click();
         highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
     }
+   
 
     // Gérer l'appui sur "Enter" pour valider
     if (event.key === "Enter") {
