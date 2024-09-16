@@ -1,6 +1,3 @@
-document.getElementById
-
-
 // TEST LOCAL STORAGE POUR LES VICTOIRES 
 
 let compteurwin = 0
@@ -382,17 +379,29 @@ function highlightCurrentCell(row, col) {
 
 
 // Bouton reset qui remet les valeurs à zéro
-reset.addEventListener("buttonClick", function() {
+reset.addEventListener("click", function() {
  compteurwin = 0
  compteurloose = 0
  nombreessais = 0
  moyenne = 0
+        // Mise à jour de l'affichage
+        vic.innerHTML = compteurwin;
+        loss.innerHTML = compteurloose;
+        moy.innerHTML = moyenne;
+    
+        // Réinitialisation du localStorage
+        localStorage.removeItem('compteurwin');
+        localStorage.removeItem('compteurloose');
+        localStorage.removeItem('nombreessais');
+        localStorage.removeItem('moyenne');
 })
 
 // bouton start qui enlève le filtre blur du body
 
 
-start.addEventListener("buttonClick", function() {
-    $("container").css("filter", none);
+start.addEventListener("click", function() {
 
-})
+    document.querySelector(".container").style.filter = "none";
+    document.querySelector("#start").style.display = "none";
+
+});
