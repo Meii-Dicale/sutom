@@ -5,6 +5,7 @@ let compteurloose = 0
 let nombreessais = 0
 let moyenne = 0
 
+let reset = document.getElementById ( 'reset' )
 
 
 if (localStorage.getItem('compteurwin')) {
@@ -377,4 +378,9 @@ function highlightCurrentCell(row, col) {
 
 
 
-
+reset.addEventListener("buttonClick", function() {
+ compteurwin = 0
+ compteurloose = 0
+ nombreessais = 0
+ moyenne = 0
+})
