@@ -5,8 +5,6 @@ let compteurloose = 0
 let nombreessais = 0
 let moyenne = 0
 
-let reset = document.getElementById ( 'reset' )
-let start = document.getElementById ( 'start' )
 
 
 if (localStorage.getItem('compteurwin')) {
@@ -137,9 +135,8 @@ lettreDivs.forEach(div => {
             if (currentCol < letters.length) {  // S'assurer que la colonne ne dépasse pas la longueur du mot
                 let cell = document.getElementById("letter" + currentRow + currentCol);
                 cell.textContent = lettre;
-                
+                highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
                 currentCol++; // Passer à la prochaine colonne
-                 highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
                 // console.log(currentRow + "," + currentCol)
 
             }
@@ -157,7 +154,6 @@ lettreDivs.forEach(div => {
 
                 currentRow++; // passer à la ligne 
                 currentCol = 1; // Réinitialiser la colonne pour la prochaine ligne
-                highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
 
             } else {
                 
@@ -187,7 +183,7 @@ addEventListener('keydown', function (event) {
     // Si un div existe pour cette lettre, simuler un clic
     if (lettreDiv) {
         lettreDiv.click();
-        
+        highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
     }
    
 
@@ -196,7 +192,6 @@ addEventListener('keydown', function (event) {
         let entreeDiv = document.querySelector(`div[data-lettre='_entree']`);
         if (entreeDiv) {
             entreeDiv.click();
-
         }
     }
 });
@@ -271,20 +266,17 @@ function win(letters, currentRow) {
 // la partie est perdu si on a appuyé sur entree et que la colonne est la dernière, la ligne 6 et que la fonction win n'abouti pas
 
 
-function loose(letters, currentRow, currentCol) {
+function loose(letters, currentRow, currentCol, compteurloose) {
     let cell = document.getElementById("letter" + currentRow + (currentCol - 1)); // dernière lettre entrée
-
-    // Vérifier si on est à la dernière ligne (6ème essai) et que la dernière lettre n'est pas correcte
-    if (currentRow === 5 && currentCol === letters.length && !win(letters, currentRow)) {
-        alert("Perdu! Tu as raté le mot : " + letters.join("")); // Afficher le mot complet
-        compteurloose++; // Incrémenter le compteur de défaites
-        localStorage.setItem('compteurloose', compteurloose); // Mettre à jour le stockage local
-        location.reload(); // Recharger la page après la défaite
-        return true; // Retourner vrai pour indiquer la défaite
+    if (currentRow === 5 && currentCol === letters.length && cell.getAttribute("class") !== "correct") {
+        alert("Perdu! Tu as raté le mot : " + letters.join(""));
+        compteurloose++;
+        localStorage.setItem('compteurloose', compteurloose);
+        location.reload();
+        return true; // Le joueur a perdu
     }
     return false; // Le joueur n'a pas encore perdu
 }
-
 
 function countRepetitions(letters) {
     let letterCount = {};
@@ -327,14 +319,8 @@ function verifyredAndOrange(letters, currentRow) {
             keyboardKey.setAttribute("class", "correctkey"); // applique une classe sur le clavier
             repetitions[lalettre]--; // Décrémenter le compteur de cette lettre
             let cellbot = document.getElementById("letter" + (currentRow+1) + col);
-            if (cellbot) {  // Vérifier si cellbot existe
-                cellbot.textContent = lalettre; // Afficher la lettre dans la cellule de la ligne suivante
-            }
-            
-            // Si on a atteint la dernière cellule de la ligne actuelle
-            if (col === letters.length - 1) {
-                return false; // Arrêter l'exécution
-            }
+            console.log(cellbot);
+            cellbot.textContent = lalettre;
         }
     }
 
@@ -381,30 +367,5 @@ function highlightCurrentCell(row, col) {
 };
 
 
-// Bouton reset qui remet les valeurs à zéro
-reset.addEventListener("click", function() {
- compteurwin = 0
- compteurloose = 0
- nombreessais = 0
- moyenne = 0
-        // Mise à jour de l'affichage
-        vic.innerHTML = compteurwin;
-        loss.innerHTML = compteurloose;
-        moy.innerHTML = moyenne;
-    
-        // Réinitialisation du localStorage
-        localStorage.removeItem('compteurwin');
-        localStorage.removeItem('compteurloose');
-        localStorage.removeItem('nombreessais');
-        localStorage.removeItem('moyenne');
-})
-
-// bouton start qui enlève le filtre blur du body
 
 
-start.addEventListener("click", function() {
-
-    document.querySelector(".container").style.filter = "none";
-    document.querySelector("#start").style.display = "none";
-
-});
