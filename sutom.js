@@ -121,7 +121,7 @@ lettreDivs.forEach(div => {
             let cell = document.getElementById("letter" + currentRow + (currentCol - 1))
             if (currentCol > 0) {
                 currentCol--;
-                highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
+                
             }
             else { return }
             cell.textContent = "";
@@ -134,8 +134,9 @@ lettreDivs.forEach(div => {
             if (currentCol < letters.length) {  // S'assurer que la colonne ne dépasse pas la longueur du mot
                 let cell = document.getElementById("letter" + currentRow + currentCol);
                 cell.textContent = lettre;
-                highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
+                
                 currentCol++; // Passer à la prochaine colonne
+                 highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
                 // console.log(currentRow + "," + currentCol)
 
             }
@@ -153,6 +154,7 @@ lettreDivs.forEach(div => {
 
                 currentRow++; // passer à la ligne 
                 currentCol = 1; // Réinitialiser la colonne pour la prochaine ligne
+                highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
 
             } else {
                 
@@ -181,7 +183,7 @@ addEventListener('keydown', function (event) {
     // Si un div existe pour cette lettre, simuler un clic
     if (lettreDiv) {
         lettreDiv.click();
-        highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
+        
     }
 
     // Gérer l'appui sur "Enter" pour valider
@@ -189,6 +191,7 @@ addEventListener('keydown', function (event) {
         let entreeDiv = document.querySelector(`div[data-lettre='_entree']`);
         if (entreeDiv) {
             entreeDiv.click();
+
         }
     }
 });
