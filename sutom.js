@@ -390,6 +390,6 @@ reset.addEventListener("buttonClick", function() {
 
 
 start.addEventListener("buttonClick", function() {
-    $("body").css("blur", none);
+    $("container").css("filter", none);
 
 })
