@@ -32,25 +32,35 @@ moy = document.getElementById('tentatives')
 moy.innerHTML = moyenne
 ////////////////////////////////
 
-
-// création d'une liste de mots 
-let words = ["pomme", "banane", "cerise", "noix", "ananas", "éléphant", "crocodile", "chenille", "chat", "escargot", "noël","carnaval","cuisine","service","festival",];
+fetch("https://trouve-mot.fr/api/random")
+    .then((response) => response.json())
+    .then((words) => {
+        let random = words[0].name;
+        console.log(random);
+        // création d'une liste de mots 
+//let words = ["pomme", "banane", "cerise", "noix", "ananas", "éléphant", "crocodile", "chenille", "chat", "escargot", "noël","carnaval","cuisine","service","festival",];
 // console.log(words);
 // Création d'une fonction pour choisir un mot du tableau 
-function randomword(words) {
+/* function randomword(words) {
     return words[Math.floor(Math.random() * words.length)];
-}
+} */
 // stocker le mot aléatoire dans une variable
-let random = randomword(words);
+//let random = randomword(words);
 let majuscule = random.toUpperCase()
-// console.log(random);
+console.log(majuscule);
+
 let sansAccents = majuscule.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+console.log(sansAccents);
 // découper le mot en tableau et stocker chaque lettre dans une variable 
 let letters = sansAccents.split("");
-// console.log(letters);
+ console.log(letters);
 // compter le nombre d'élément dans letters
 let count = letters.length;
 // console.log(count);
+   
+
+
+
 // créer un tableau dans la div grid
 let grid = document.getElementById("grid")
 let table = document.createElement("table");
@@ -400,3 +410,4 @@ function rewriteCorrectLetters(currentRow) {
     }
 };
 
+})
