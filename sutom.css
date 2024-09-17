@@ -15,8 +15,8 @@ body {
 #start {
 	position: absolute;
 	z-index: 10;
-	top: 10em;
-	left: 15em;
+	top: 50%;
+	left: 40%;
 	width: 10em;
 	background: linear-gradient(rgb(255, 247, 2), rgb(175, 174, 174));
 	padding: 20px;

@@ -438,7 +438,7 @@ function rewriteCorrectLetters(currentRow) {
 
 })
 
-//// DICTIONNAIRE ////
+//// DICTIONNAIRE ////////
 
 // Fonction pour lire le fichier local
 function readFile() {
