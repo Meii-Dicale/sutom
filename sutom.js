@@ -5,6 +5,7 @@ let nombreessais = 0
 let moyenne = 0
 let reset = document.getElementById ( 'reset' )
 let start = document.getElementById ( 'start' )
+let jeuencours = true
 if (localStorage.getItem('compteurwin')) {
     compteurwin = parseInt(localStorage.getItem('compteurwin'))
 }
@@ -17,9 +18,32 @@ if (localStorage.getItem('moyenne')) {
 if (localStorage.getItem('nombreessais')) {
     nombreessais = parseInt(localStorage.getItem('nombreessais'))
 }
-if (compteurwin > 0) {
+if ((compteurwin +compteurloose) > 0) {
     moyenne = Math.round(nombreessais / (compteurwin + compteurloose));
 }
+
+console.log(jeuencours)
+// Ici on veut que le bouton commencer ne réapparaisse pas à chaque partie ( il reviendra au bouton reset)
+if (localStorage.getItem('jeuencours')) {
+    jeuencours = JSON.parse(localStorage.getItem('jeuencours'))
+}
+    // bouton start qui enlève le filtre blur du body
+start.addEventListener("click", function() {
+   
+    document.querySelector(".container").style.filter = "none";
+    document.querySelector("#start").style.display = "none";
+    jeuencours = false
+    localStorage.setItem('jeuencours', jeuencours);
+    console.log(jeuencours);
+    ;
+});
+if ( jeuencours === false) {
+    document.querySelector(".container").style.filter = "none";
+    document.querySelector("#start").style.display = "none";
+    } ;
+    console.log(jeuencours)
+
+
 console.log ( "essais" + nombreessais)
 console.log('moyenne'+ moyenne)
 console.log('win' + compteurwin) //
@@ -129,7 +153,10 @@ lettreDivs.forEach(div => {
             }
                // Si la ligne est terminée, passer à la ligne suivante et vérification de placement et victoire
                if (currentCol === letters.length && lettre === "_entree") 
-                { verifyredAndOrange(letters, currentRow)
+                { 
+                   
+                    
+                    verifyredAndOrange(letters, currentRow)
                   let victoire = win(letters, currentRow);
                   nombreessais ++;
                   localStorage.setItem('nombreessais', nombreessais);
@@ -345,6 +372,7 @@ reset.addEventListener("click", function() {
  compteurloose = 0
  nombreessais = 0
  moyenne = 0
+ jeuencours = true
         // Mise à jour de l'affichage
         vic.innerHTML = compteurwin;
         loss.innerHTML = compteurloose;
@@ -355,12 +383,10 @@ reset.addEventListener("click", function() {
         localStorage.removeItem('compteurloose');
         localStorage.removeItem('nombreessais');
         localStorage.removeItem('moyenne');
+        localStorage.setItem('jeuencours',jeuencours);
+        location.reload();
 })
-// bouton start qui enlève le filtre blur du body
-start.addEventListener("click", function() {
-    document.querySelector(".container").style.filter = "none";
-    document.querySelector("#start").style.display = "none";
-});
+
 
  
 
@@ -411,3 +437,34 @@ function rewriteCorrectLetters(currentRow) {
 };
 
 })
+
+//// DICTIONNAIRE ////
+
+// Fonction pour lire le fichier local
+function readFile() {
+    return fetch('larousse.txt')
+      .then(response => response.text()) 
+      .then(text => text.split('\n')); // j'utilise \ car chaque mot est sur une ligne 
+      
+  };
+  
+  // Fonction pour vérifier si le mot existe
+  function verifyWord(word) {
+    return fetch('/words')
+      .then(response => response.json())
+      .then(words => words.includes(word.toUpperCase()));
+  };
+  
+
+
+  // Fonction pour recomposer le mot formé sur la ligne actuelle
+function getCurrentRowWord(row) {
+    let word = '';
+    for (let col = 0; col < letters.length; col++) {
+        let cell = document.getElementById("letter" + row + col);
+        word += cell.textContent || ''; // Ajoute le texte de la cellule, ou une chaîne vide si la cellule est vide
+        
+    }
+    return word;
+    
+};
