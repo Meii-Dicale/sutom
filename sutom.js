@@ -22,7 +22,7 @@ if ((compteurwin +compteurloose) > 0) {
     moyenne = Math.round(nombreessais / (compteurwin + compteurloose));
 }
 
-console.log(jeuencours)
+// console.log(jeuencours)
 // Ici on veut que le bouton commencer ne réapparaisse pas à chaque partie ( il reviendra au bouton reset)
 if (localStorage.getItem('jeuencours')) {
     jeuencours = JSON.parse(localStorage.getItem('jeuencours'))
@@ -34,20 +34,20 @@ start.addEventListener("click", function() {
     document.querySelector("#start").style.display = "none";
     jeuencours = false
     localStorage.setItem('jeuencours', jeuencours);
-    console.log(jeuencours);
+    // console.log(jeuencours);
     ;
 });
 if ( jeuencours === false) {
     document.querySelector(".container").style.filter = "none";
     document.querySelector("#start").style.display = "none";
     } ;
-    console.log(jeuencours)
+    // console.log(jeuencours)
 
 
-console.log ( "essais" + nombreessais)
-console.log('moyenne'+ moyenne)
-console.log('win' + compteurwin) //
-console.log('loose'+ compteurloose)
+// console.log ( "essais" + nombreessais)
+// console.log('moyenne'+ moyenne)
+// console.log('win' + compteurwin) //
+// console.log('loose'+ compteurloose)
 vic = document.getElementById('victoires')
 vic.innerHTML = compteurwin
 loss = document.getElementById('defaites')
@@ -60,10 +60,10 @@ fetch("https://trouve-mot.fr/api/random")
     .then((response) => response.json())
     .then((words) => {
         let random = words[0].name;
-        console.log(random);
+        // console.log(random);
         // création d'une liste de mots 
 //let words = ["pomme", "banane", "cerise", "noix", "ananas", "éléphant", "crocodile", "chenille", "chat", "escargot", "noël","carnaval","cuisine","service","festival",];
-// console.log(words);
+// // console.log(words);
 // Création d'une fonction pour choisir un mot du tableau 
 /* function randomword(words) {
     return words[Math.floor(Math.random() * words.length)];
@@ -71,16 +71,16 @@ fetch("https://trouve-mot.fr/api/random")
 // stocker le mot aléatoire dans une variable
 //let random = randomword(words);
 let majuscule = random.toUpperCase()
-console.log(majuscule);
+// console.log(majuscule);
 
 let sansAccents = majuscule.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-console.log(sansAccents);
+// console.log(sansAccents);
 // découper le mot en tableau et stocker chaque lettre dans une variable 
 let letters = sansAccents.split("");
- console.log(letters);
+ // console.log(letters);
 // compter le nombre d'élément dans letters
 let count = letters.length;
-// console.log(count);
+// // console.log(count);
    
 
 
@@ -91,20 +91,20 @@ let table = document.createElement("table");
 grid.appendChild(table);
 // création de 6 lignes pour chaque lettre tableau
 for (i = 0; i < 6; i++) {
-    // // console.log(i);
+    // // // console.log(i);
     let row = document.createElement("tr")
     row.setAttribute("id", "try" + i)
     table.appendChild(row)
     for (j = 0; j < letters.length; j++) {
-        // // console.log(j);
+        // // // console.log(j);
         let cell = document.createElement("td")
         cell.setAttribute("id", "letter" + i + j)
         row.appendChild(cell)
         if (j === 0 ) {
             let first = letters[0]
             cell.textContent  = first
-            // console.log(cell);
-            // console.log(first);
+            // // console.log(cell);
+            // // console.log(first);
             
         }
         cell = letters[j]
@@ -115,7 +115,7 @@ for (i = 0; i < 6; i++) {
 let currentRow = 0;
 let currentCol = 1;
 highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
-// console.log(currentRow +","+ currentCol)
+// // console.log(currentRow +","+ currentCol)
 // Sélectionner toutes les divs avec un attribut data-lettre
 let lettreDivs = document.querySelectorAll('div[data-lettre]');
 // Boucle à travers chaque div et ajout de l'écouteur d'événements
@@ -124,11 +124,11 @@ lettreDivs.forEach(div => {
         
         // Récupérer la valeur de l'attribut data-lettre
         let lettre = div.getAttribute('data-lettre');
-        // console.log('Lettre cliquée :', lettre);
+        // // console.log('Lettre cliquée :', lettre);
         //test pour voir si lettre récupère bien la valeur        // Effacer la case précédente si on appuie sur effacer
         if (lettre === "_effacer") {
-            // console.log("EFFACE MOI CA");
-            // console.log(currentRow + "," + currentCol)
+            // // console.log("EFFACE MOI CA");
+            // // console.log(currentRow + "," + currentCol)
             let cell = document.getElementById("letter" + currentRow + (currentCol - 1))
             if (currentCol > 0) {
                 currentCol--;
@@ -138,7 +138,7 @@ lettreDivs.forEach(div => {
             else { return }
             cell.textContent = "";
 
-            // console.log(currentRow + "," + currentCol)
+            // // console.log(currentRow + "," + currentCol)
         } else {
             if (currentCol < letters.length && lettre === "_entree") {
                 return
@@ -149,7 +149,7 @@ lettreDivs.forEach(div => {
                 
                 currentCol++; // Passer à la prochaine colonne
                  highlightCurrentCell(currentRow, currentCol); // Mettre à jour la surbrillance
-                // console.log(currentRow + "," + currentCol)
+                // // console.log(currentRow + "," + currentCol)
             }
                // Si la ligne est terminée, passer à la ligne suivante et vérification de placement et victoire
                if (currentCol === letters.length && lettre === "_entree") 
@@ -179,12 +179,12 @@ addEventListener('keydown', function (event) {
     // Convertir la touche en majuscule
     let maj = event.key;
     let lettre = maj.toUpperCase();
-    console.log('Touche pressée :', event.key);
+    // console.log('Touche pressée :', event.key);
     
     // Vérifier si c'est la touche "Backspace" pour effacer
     if (event.key === "Backspace") {
         lettre = "_effacer";
-        console.log('Lettre :', lettre);
+        // console.log('Lettre :', lettre);
 
     }
 
