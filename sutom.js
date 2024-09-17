@@ -60,7 +60,7 @@ fetch("https://trouve-mot.fr/api/random")
     .then((response) => response.json())
     .then((words) => {
         let random = words[0].name;
-        // console.log(random);
+        // console .log(random);
         // création d'une liste de mots 
 //let words = ["pomme", "banane", "cerise", "noix", "ananas", "éléphant", "crocodile", "chenille", "chat", "escargot", "noël","carnaval","cuisine","service","festival",];
 // // console.log(words);
@@ -312,7 +312,7 @@ function verifyredAndOrange(letters, currentRow) {
     // Première passe : vérifier et marquer les lettres correctement placées (rouge)
     for (let col = 0; col < letters.length; col++) {
         let cell = document.getElementById("letter" + currentRow + col);
-        let lalettre = cell.textContent; // on récupère la lettre pour la décompter après
+        let lalettre = cell.textContent; 
         currentAttempt.push(lalettre); // Ajouter la lettre dans la tentative actuelle
         let keyboardKey = document.querySelector(`div[data-lettre='${lalettre}']`); //ajoute la lettre qui a été tapé dans la variable
         // Si la lettre est à la bonne position, on la marque comme correcte (rouge)
@@ -323,9 +323,9 @@ function verifyredAndOrange(letters, currentRow) {
             
             
             // Si on a atteint la dernière cellule de la ligne actuelle
-            if (col === letters.length - 1) {
-                return false; // Arrêter l'exécution
-            }
+           // if (col === letters.length - 1) {
+             //   return ; // Arrêter l'exécution
+           // }
         }
     }
     // Deuxième passe : vérifier les lettres mal placées (orange) ou incorrectes
@@ -334,6 +334,7 @@ function verifyredAndOrange(letters, currentRow) {
         let lalettre = cell.textContent; // on récupère la lettre pour la décompter après 
         let keyboardKey = document.querySelector(`div[data-lettre='${lalettre}']`);
         // Si la lettre n'est pas correcte et est ailleurs dans le mot
+        // console .log(lalettre);// on récupère la lettre pour la décompter après
         if (cell.getAttribute("class") !== "correct" && letters.includes(lalettre)) {
             // Si la lettre a encore des occurrences disponibles (répétitions restantes)
             if (repetitions[lalettre] > 0) {
@@ -345,11 +346,7 @@ function verifyredAndOrange(letters, currentRow) {
                 cell.setAttribute("class", "incorrect");
                 keyboardKey.setAttribute("class", "incorrectkey");
             }
-        } else if (cell.getAttribute("class") !== "correct") {
-            // Si la lettre n'est ni correcte ni mal placée, la marquer comme incorrecte
-            cell.setAttribute("class", "incorrect");
-            keyboardKey.setAttribute("class", "incorrectkey");
-        }
+        } 
     }
 
 };
