@@ -5,7 +5,7 @@ body {
     justify-content: center;
     color: #181c14;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     background-color: #181c14;
     margin: 0;
     padding: 0;
@@ -14,22 +14,36 @@ body {
 
 #start {
     position: absolute;
-    z-index: 10;
-    top: 35%;
-    left: 35%;
-    width: 30%;
+    z-index: 10;    
+    top: 10em;
+    left: 15em;
+    width: 10em;
     background: linear-gradient(rgb(255, 247, 2), rgb(175, 174, 174));
     padding: 20px;
     font-size: 30px;
     border-radius: 20px;
     color: white;
-    z-index: 10;
+    z-index: 10;    
+    cursor: pointer;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
 
-}
+   } 
+
+   #start:hover, #start:focus, #start:active{
+    box-shadow: 0 0 0 2px #000000;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+   }
+
+
+
 
 #reset {
     margin: 1vw;
-    width: 40vw;    
+    width: 40vw;
     border-radius: 10px;
     padding: 5px;
     background-color: #ffd100;
@@ -65,19 +79,15 @@ h1 {
 }
 
 
+
 th {
-    font-size: 0.8rem;
-    display: flex;
-    justify-content: space-between;   
-
+    font-size: 0.8rem;    
 }
 
-tr {
+.tr-part {
     display: flex;
-    justify-content: space-around;
-    
-
-}
+    justify-content: space-around;    
+    }
 
 #score {
     display: flex;
@@ -90,14 +100,14 @@ tr {
     margin-top: 3vw;
 }
 
-/* #table-victoires-defaites {
+#table-victoires-defaites {
     margin: 1vw;
     width: 60vw;
     text-align: center;
     border-collapse: collapse;
     display: flex;
-    align-self: flex-start;
-} */
+    justify-content: space-around;
+}
 
 #top-sutom {
     display: flex;
